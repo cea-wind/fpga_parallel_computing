@@ -1,5 +1,5 @@
-#ifndef __VECTOR_ACCUM_H__
-#define __VECTOR_ACCUM_H__
+#ifndef __PREFIX_SUM_H__
+#define __PREFIX_SUM_H__
 
 #include "ap_int.h"
 
