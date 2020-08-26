@@ -85,13 +85,13 @@ void histgram_pipe2(int *a, int num, int *hist) {
 #pragma HLS INTERFACE m_axi depth = 2048 port = a
 #pragma HLS INTERFACE m_axi depth = 2048 port = hist
   int local_hist[1024];
-#pragma HLS RESOURCE variable=local_hist core=RAM_S2P_BRAM latency=2
+#pragma HLS RESOURCE variable=local_hist core=RAM_S2P_BRAM latency=4
   int cache_reg[4];
   int cache_idx[4];
   cached_array_init(local_hist, cache_reg, cache_idx);
   int rega;
   for (int i = 0; i < num; i++) {
-#pragma HLS DEPENDENCE variable=local_hist inter RAW distance=4 true
+#pragma HLS DEPENDENCE variable=local_hist inter RAW distance=5 true
 #pragma HLS PIPELINE II = 1
     rega = a[i];
     if (rega < 0) rega = 0;

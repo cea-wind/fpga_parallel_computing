@@ -9,7 +9,7 @@ int main() {
   int hist_seq[1024], hist_pipe1[1024], hist_pipe2[1024];
   a = (int *)malloc(sizeof(int) * num);
   for (int i = 0; i < num; i++) {
-    a[i] = rand()%5;
+    a[i] = rand()%6;
   }
   histgram_seq(a, num, hist_seq);
   histgram_pipe1(a, num, hist_pipe1);
