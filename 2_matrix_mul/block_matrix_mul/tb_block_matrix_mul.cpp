@@ -16,23 +16,23 @@ void MatrixMulRef(int *a, int a_row, int a_col, int *b, int b_row, int b_col,
 
 int main() {
   int *a, *b, *c_ref, *c;
-  int a_row = 32;
-  int a_col = 32;
-  int b_row = 32;
-  int b_col = 32;
-  a = (int *)malloc(a_row * a_col * sizeof(int));
-  b = (int *)malloc(b_row * b_col * sizeof(int));
-  c = (int *)malloc(a_row * b_col * sizeof(int));
+  int a_row = 128;
+  int a_col = 128;
+  int b_row = a_col;
+  int b_col = 128;
+  a = (int *)malloc(32768 * sizeof(int));
+  b = (int *)malloc(32768 * sizeof(int));
+  c = (int *)malloc(32768 * sizeof(int));
   c_ref = (int *)malloc(a_row * b_col * sizeof(int));
   // init a & b
   for (int i = 0; i < a_row; i++) {
     for (int j = 0; j < a_col; j++) {
-      a[i * a_col + j] = i * a_col + j;
+      a[i * a_col + j] = rand()%256;
     }
   }
   for (int i = 0; i < b_row; i++) {
     for (int j = 0; j < b_col; j++) {
-      b[i * b_col + j] = 1;//i * b_col + j;
+      b[i * b_col + j] = rand()%256;//i * b_col + j;
     }
   }
   MatrixMulRef(a, a_row, a_col, b, b_row, b_col, c_ref);

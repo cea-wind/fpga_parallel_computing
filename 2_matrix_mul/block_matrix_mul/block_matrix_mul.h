@@ -6,16 +6,16 @@
 #include "hls_stream.h"
 #include "assert.h"
 
-#define BLOCK_A_HEIGHT 16
-#define BLOCK_A_WIDTH 16
+#define BLOCK_A_HEIGHT 32
+#define BLOCK_A_WIDTH 32
 #define BLOCK_B_HEIGHT BLOCK_A_WIDTH
-#define BLOCK_B_WIDTH 16
+#define BLOCK_B_WIDTH 32
 #define BLOCK_C_HEIGHT BLOCK_A_HEIGHT
 #define BLOCK_C_WIDTH BLOCK_B_WIDTH
 
-#define PARAL_M 2
-#define PARAL_K 2
-#define PARAL_N 2
+#define PARAL_M 4
+#define PARAL_K 4
+#define PARAL_N 4
 
 const int local_a_dim2_factor = PARAL_M;
 const int local_a_dim3_factor = PARAL_K;
